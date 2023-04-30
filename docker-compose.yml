@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    command: python app/main.py
+    ports:
+      - 80:80
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - MONGO_URI=mongodb://db:27017
+
+  db:
+    image: mongo
